@@ -10,7 +10,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const teamMember = [];
 
+function manager() {
+
+// questions for manager
 inquirer.prompt([
     {
             message: "What is the managers name?",
@@ -26,13 +30,57 @@ inquirer.prompt([
             message: "What is the managers email address?",
             type: "input",
             name: "email"
+        },
+        {
+            message: "What is the managers office number?",
+            type: "input",
+            name: "officeNumber"
         }
         
-    ]).then(function(response){
-        console.log(response);
+    ]).then(function(response) {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+        // adds manager to team array
+        teamMember.push(manager);
+
         
 
-    })
+    });
+}
+ 
+    
+
+function getEngineer() {
+    inquirer.prompt([
+        {
+                message: "What is the engineers name?",
+                type: "input",
+                name: "engineerName"
+            },
+            {
+                message: "What is the engineers id?",
+                type: "input",
+                name: "engineersId"
+            },
+            {
+                message: "What is the engineers email address?",
+                type: "input",
+                name: "engineersEmail"
+            },
+            {
+                message: "What is the engineers github username?",
+                type: "input",
+                name: "engineersGit"
+            }
+
+
+        ]).then(function(response) {
+            const engineer = new Engineer (response.name, response.id, response.email, response.engineersGit);
+            // adds manager to team array
+ 
+            teamMember.push(manager);
+}
+    )}
+
 
 
 
