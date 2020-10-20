@@ -80,12 +80,7 @@ function getEngineer() {
             teamMember.push(manager);
 }
     )}
-
-
-
-
-
-
+        
 
 
 // Write code to use inquirer to gather information about the development team members,
