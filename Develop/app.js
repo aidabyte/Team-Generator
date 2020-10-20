@@ -29,6 +29,7 @@ inquirer.prompt([
         }
         
     ]).then(function(response){
+        console.log(response);
         
 
     })
