@@ -11,6 +11,30 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
+inquirer.prompt([
+    {
+            message: "What is the managers name?",
+            type: "input",
+            name: "name"
+        },
+        {
+            message: "What is the managers id?",
+            type: "input",
+            name: "id"
+        },
+        {
+            message: "What is the managers email address?",
+            type: "input",
+            name: "email"
+        }
+        
+    ]).then(function(response){
+        
+
+    })
+
+
+
 
 
 
