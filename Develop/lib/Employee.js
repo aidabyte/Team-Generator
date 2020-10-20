@@ -6,6 +6,22 @@ class Employee {
         this.email = email;
     }
 
+    getName() {
+        // console.log(this.name)
+    }
+
+    getId(){
+
+    }
+
+    getEmail(){
+
+    }
+
+    getRole(){
+        
+    }
+
 
 }
 
