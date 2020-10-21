@@ -42,7 +42,7 @@
                 // referring to video of poornima reviewing deconstruction in demo activity 10/16
             ]).then(function({name, id, email, officeNumber}) {
                 const manager = (name, id, email,officeNumber);
-                
+                // console.log(`${name} ${id} ${email} ${officeNumber}`);
                 // adds manager to team array
                 teamMember.push(manager);
         
@@ -62,8 +62,15 @@
                     choices: ["engineer", "intern", "i dont want to add anymore employees to roles"]
         
                 }
-            ])
-        }
+            ]).then(function(response) {
+               if (response.role === "engineer"){
+                   getEngineer();
+               }
+            }
+            )}
+        
+        
+        
         getManager();
         
         function getEngineer() {
@@ -92,9 +99,10 @@
                 
             ]).then(function({engineersName, engineersId, engineersEmail, engineersGit}) {
                 const engineer = (engineersName, engineersId, engineersEmail,engineersGit);
+                console.log(`${engineersName} ${engineersId} ${engineersEmail} ${engineersGit}`)
                 // adds manager to team array
                 teamMember.push(engineer);
-                
+        
                 generateTeam();
                 }
                 )}
