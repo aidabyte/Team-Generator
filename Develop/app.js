@@ -65,6 +65,9 @@ function generateTeam() {
     ]).then(function (response) {
         if (response.role === "engineer") {
             getEngineer();
+        } else if (response.role === "intern") {
+            getIntern();
+
         }
     }
     )
