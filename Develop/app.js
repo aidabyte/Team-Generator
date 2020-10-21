@@ -39,9 +39,9 @@ function getManager() {
             type: "input",
             name: "officeNumber"
         }
-        // referring to video of poornima reviewing destruction in demo activity 10/16
+        
     ]).then(function ({ name, id, email, officeNumber }) {
-        const manager = (name, id, email, officeNumber);
+        const manager = new Manager(name, id, email, officeNumber);
 
         // adds manager to team array
         teamMember.push(manager);
@@ -52,6 +52,17 @@ function getManager() {
     });
 }
 
+function getDone() {
+    inquirer.prompt([
+        {
+            message: "You are done!",
+            name: "done"
+        }
+        
+    ]
+    )}
+
+
 
 function generateTeam() {
     inquirer.prompt([
@@ -59,18 +70,30 @@ function generateTeam() {
             message: "What role does your next employee have?",
             type: "list",
             name: "role",
-            choices: ["engineer", "intern", "i dont want to add anymore employees to roles"]
+            choices: ["Engineer", "Intern", "i dont want to add anymore employees to roles"]
 
         }
     ]).then(function (response) {
-        if (response.role === "engineer") {
+        if (response.role === "Engineer") {
             getEngineer();
-        } else if (response.role === "intern") {
-            getIntern();
 
-        }
-    }
-    )
+        } else if (response.role === "Intern") {
+            getIntern();
+            
+        }else if (response.role ==="i dont want to add anymore employees to roles"){
+            getDone();
+
+            fs.writeFile(outputPath, render(teamMember), function (err) {
+                if (err) console.log(err);
+                
+            }); 
+
+        }   
+
+        
+       
+    
+})
 }
 
 
@@ -102,7 +125,7 @@ function getEngineer() {
 
 
     ]).then(function ({ engineersName, engineersId, engineersEmail, engineersGit }) {
-        const engineer = (engineersName, engineersId, engineersEmail, engineersGit);
+       const engineer = new Engineer (engineersName, engineersId, engineersEmail,engineersGit)
        
         // adds engineer to team array
         teamMember.push(engineer);
@@ -137,15 +160,27 @@ function getIntern() {
 
 
     ]).then (function({internName, internId, internEmail, internSchool}) {
-        const intern = (internName, internId, internEmail, internSchool);
-
+        var intern = new Intern(internName, internId, internEmail, internSchool);
         // add intern to team array
 
+        teamMember.push(intern);
+
+        generateTeam();
+
+        // fs.writeFile(outputPath, render(teamMember), function (err) {
+        //     if (err) console.log(err);
+            
+        // });
+
+
+        
+    }
+    )}
 
 
     
-    }
-    )}
+
+   
     
 
 

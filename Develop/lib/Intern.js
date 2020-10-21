@@ -20,4 +20,8 @@ getRole(){
 }
 }
 
+
+var obj = new Intern("suzie", 1, "yeah@yahoo.com");
+console.log(obj)
+obj.getSchool();
 module.exports = Intern;
