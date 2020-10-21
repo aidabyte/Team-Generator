@@ -46,6 +46,23 @@ inquirer.prompt([
 });
 }
 
+// set up a function to make a team
+function generateTeam() {
+    inquirer.prompt([
+        {
+            message: "What role does your next employee have?",
+            type: "list",
+            name: "role",
+            choices: ["Engineer", "Intern", "Manager"]
+        }
+
+    ])
+}
+
+
+getManager();
+
+// ask engineer questions
 function getEngineer() {
     inquirer.prompt([
         {
@@ -56,32 +73,32 @@ function getEngineer() {
             {
                 message: "What is the engineers id?",
                 type: "input",
-                name: "engineersId"
+                name: "engineerId"
             },
             {
                 message: "What is the engineers email address?",
                 type: "input",
-                name: "engineersEmail"
+                name: "engineerEmail"
             },
             {
                 message: "What is the engineers github username?",
                 type: "input",
-                name: "engineersGit"
+                name: "engineerGit"
             }
 
 
         ]).then(function(response) {
-            const engineer = new Engineer (response.name, response.id, response.email, response.engineersGit);
+            const engineer = new Engineer (response.name, response.id, response.email, response.engineerGit);
             // adds manager to team array
  
-            teamMember.push(manager);
+            teamMember.push(engineer);
 }
     )}
 
 
 
-getEngineer();
-getManager();
+
+
 
 
 
