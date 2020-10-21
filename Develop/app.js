@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 const teamMember = [];
-
+// questions for manager
 function getManager() {
 inquirer.prompt([
     {
@@ -35,8 +35,9 @@ inquirer.prompt([
             name: "officeNumber"
         }
         
-    ]).then(function(response) {
-        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+    ]).then(function({name, id, email, officeNumber}) {
+        const manager = (name, id, email,officeNumber);
+       
         // adds manager to team array
         teamMember.push(manager);
 
@@ -63,11 +64,12 @@ function generateTeam() {
         } else if (response.role === "intern"){
             getIntern();
 
-        }else if (response.role === "manager"){
+        }else (createATeam());
 
-        }
-    })
-}
+
+        })
+    
+    }
 
 
 
@@ -98,15 +100,15 @@ function getEngineer() {
             }
 
 
-        ]).then(function(response) {
-            const engineer = new Engineer (response.name, response.id, response.email, response.engineerGit);
+        ]).then(function({engineerName, engineerId, engineerEmail, engineerGit}) {
+            const engineer = (engineerName, engineerId, engineerEmail,engineerGit);
+            
             // adds manager to team array
- 
             teamMember.push(engineer);
-
+    
             generateTeam();
-}
-    )}
+            }
+            )}
 
     function getIntern() {
         inquirer.prompt([
@@ -131,8 +133,21 @@ function getEngineer() {
                 name: "internSchool"
             }
             
-        ])
-    }    
+        ]).then(function({internName, internId, internEmail, internSchool}) {
+            const intern = (internName, internId, internEmail,internSchool);
+        
+        
+            // adds manager to team array
+            teamMember.push(intern);
+    
+            generateTeam();
+            }
+            )}   
+      
+        
+        
+
+      
    
 
 
