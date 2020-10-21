@@ -40,7 +40,7 @@ inquirer.prompt([
         // adds manager to team array
         teamMember.push(manager);
 
-        // generateTeam();
+        generateTeam();
    
         
 });
@@ -56,8 +56,19 @@ function generateTeam() {
             choices: ["Engineer", "Intern", "Manager"]
         }
 
-    ])
+
+    ]).then(function(response){
+        if (response.role === "engineer"){
+            getEngineer();
+        } else if (response.role === "intern"){
+            getIntern();
+
+        }else if (response.role === "manager"){
+
+        }
+    })
 }
+
 
 
 getManager();
@@ -92,8 +103,37 @@ function getEngineer() {
             // adds manager to team array
  
             teamMember.push(engineer);
+
+            generateTeam();
 }
     )}
+
+    function getIntern() {
+        inquirer.prompt([
+            {
+                message: "What is the interns name?",
+                type: "input",
+                name: "internName"
+            },
+            {
+                message: "What is the interns id?",
+                type: "input",
+                name: "internId"
+            },
+            {
+                message: "What is the interns email address?",
+                type: "input",
+                name: "internEmail"
+            },
+            {
+                message: "What is the school that the intern attended?",
+                type: "input",
+                name: "internSchool"
+            }
+            
+        ])
+    }    
+   
 
 
 
