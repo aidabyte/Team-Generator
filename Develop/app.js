@@ -101,7 +101,7 @@ function getEngineer() {
     ]).then(function ({ engineersName, engineersId, engineersEmail, engineersGit }) {
         const engineer = (engineersName, engineersId, engineersEmail, engineersGit);
        
-        // adds manager to team array
+        // adds engineer to team array
         teamMember.push(engineer);
 
         generateTeam();
@@ -133,8 +133,16 @@ function getIntern() {
         }
 
 
-    ])
+    ]).then (function({internName, internId, internEmail, internSchool}) {
+        const intern = (internName, internId, internEmail, internSchool);
+
+        // add intern to team array
+
+
+
+    
     }
+    )}
     
 
 
