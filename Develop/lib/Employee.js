@@ -22,15 +22,13 @@ class Employee {
     }
 
     getRole(){
-        return this.role
+        return "Employee"
 
     }
 
 
 }
 
-var obj = new Employee("suzie", 1, "yeah@yahoo.com");
-var obj2 = new Employee();
-obj.getName();
+
 
 module.exports = Employee;
