@@ -7,22 +7,30 @@ class Employee {
     }
 
     getName() {
-        // console.log(this.name)
+        return this.name;
+        
     }
 
     getId(){
+        return this.id
 
     }
 
     getEmail(){
+        return this.email
 
     }
 
     getRole(){
-        
+        return this.role
+
     }
 
 
 }
+
+var obj = new Employee("suzie", 1, "yeah@yahoo.com");
+var obj2 = new Employee();
+obj.getName();
 
 module.exports = Employee;
