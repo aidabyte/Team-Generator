@@ -12,9 +12,7 @@ const render = require("./lib/htmlRenderer");
 
 const teamMember = [];
 
-function manager() {
-
-// questions for manager
+function getManager() {
 inquirer.prompt([
     {
             message: "What is the managers name?",
@@ -42,12 +40,11 @@ inquirer.prompt([
         // adds manager to team array
         teamMember.push(manager);
 
+        // generateTeam();
+   
         
-
-    });
+});
 }
- 
-    
 
 function getEngineer() {
     inquirer.prompt([
@@ -80,7 +77,29 @@ function getEngineer() {
             teamMember.push(manager);
 }
     )}
-        
+
+
+
+getEngineer();
+getManager();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Write code to use inquirer to gather information about the development team members,
