@@ -1,149 +1,105 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
-const path = require("path");
-const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
-
-const render = require("./lib/htmlRenderer");
-
-const teamMember = [];
-// questions for manager
-function getManager() {
-inquirer.prompt([
-    {
-            message: "What is the managers name?",
-            type: "input",
-            name: "name"
-        },
-        {
-            message: "What is the managers id?",
-            type: "input",
-            name: "id"
-        },
-        {
-            message: "What is the managers email address?",
-            type: "input",
-            name: "email"
-        },
-        {
-            message: "What is the managers office number?",
-            type: "input",
-            name: "officeNumber"
-        }
         
-    ]).then(function({name, id, email, officeNumber}) {
-        const manager = (name, id, email,officeNumber);
-       
-        // adds manager to team array
-        teamMember.push(manager);
-
-        generateTeam();
-   
+        const Manager = require("./lib/Manager");
+        const Engineer = require("./lib/Engineer");
+        const Intern = require("./lib/Intern");
+        const inquirer = require("inquirer");
+        const path = require("path");
+        const fs = require("fs");
         
-});
-}
-
-// set up a function to make a team
-function generateTeam() {
-    inquirer.prompt([
-        {
-            message: "What role does your next employee have?",
-            type: "list",
-            name: "role",
-            choices: ["Engineer", "Intern", "Manager"]
-        }
-
-
-    ]).then(function(response){
-        if (response.role === "engineer"){
-            getEngineer();
-        } else if (response.role === "intern"){
-            getIntern();
-
-        }else (createATeam());
-
-
-        })
-    
-    }
-
-
-
-getManager();
-
-// ask engineer questions
-function getEngineer() {
-    inquirer.prompt([
-        {
-                message: "What is the engineers name?",
-                type: "input",
-                name: "engineerName"
-            },
-            {
-                message: "What is the engineers id?",
-                type: "input",
-                name: "engineerId"
-            },
-            {
-                message: "What is the engineers email address?",
-                type: "input",
-                name: "engineerEmail"
-            },
-            {
-                message: "What is the engineers github username?",
-                type: "input",
-                name: "engineerGit"
-            }
-
-
-        ]).then(function({engineerName, engineerId, engineerEmail, engineerGit}) {
-            const engineer = (engineerName, engineerId, engineerEmail,engineerGit);
-            
-            // adds manager to team array
-            teamMember.push(engineer);
-    
-            generateTeam();
-            }
-            )}
-
-    function getIntern() {
+        const OUTPUT_DIR = path.resolve(__dirname, "output");
+        const outputPath = path.join(OUTPUT_DIR, "team.html");
+        
+        const render = require("./lib/htmlRenderer");
+        
+        const teamMember = [];
+        
+        
+        
+        // questions for manager
+        function getManager() {
         inquirer.prompt([
             {
-                message: "What is the interns name?",
-                type: "input",
-                name: "internName"
-            },
-            {
-                message: "What is the interns id?",
-                type: "input",
-                name: "internId"
-            },
-            {
-                message: "What is the interns email address?",
-                type: "input",
-                name: "internEmail"
-            },
-            {
-                message: "What is the school that the intern attended?",
-                type: "input",
-                name: "internSchool"
-            }
-            
-        ]).then(function({internName, internId, internEmail, internSchool}) {
-            const intern = (internName, internId, internEmail,internSchool);
+                    message: "What is the managers name?",
+                    type: "input",
+                    name: "name"
+                },
+                {
+                    message: "What is the managers id?",
+                    type: "input",
+                    name: "id"
+                },
+                {
+                    message: "What is the managers email address?",
+                    type: "input",
+                    name: "email"
+                },
+                {
+                    message: "What is the managers office number?",
+                    type: "input",
+                    name: "officeNumber"
+                }
+                // referring to video of poornima reviewing deconstruction in demo activity 10/16
+            ]).then(function({name, id, email, officeNumber}) {
+                const manager = (name, id, email,officeNumber);
+                
+                // adds manager to team array
+                teamMember.push(manager);
+        
+                generateTeam();
+           
+                
+        });
+        }
         
         
-            // adds manager to team array
-            teamMember.push(intern);
-    
-            generateTeam();
-            }
-            )}   
-      
+        function generateTeam() {
+            inquirer.prompt([
+                {
+                    message:"What role does your next employee have?",
+                    type: "list",
+                    name: "role",
+                    choices: ["engineer", "intern", "i dont want to add anymore employees to roles"]
+        
+                }
+            ])
+        }
+        getManager();
+        
+        function getEngineer() {
+            inquirer.prompt([
+                {
+                    message: "What is the engineers name?",
+                    type: "input",
+                    name: "engineersName"
+                },
+                {
+                    message: "What is the engineers id?",
+                    type: "input",
+                    name: "engineersId"
+                },
+                {
+                    message: "What is the engineers email address?",
+                    type: "input",
+                    name: "engineersEmail"
+                },
+                {
+                    message: "What is the engineers github username?",
+                    type: "input",
+                    name: "engineersGit"
+                }
+                
+                
+            ]).then(function({engineersName, engineersId, engineersEmail, engineersGit}) {
+                const engineer = (engineersName, engineersId, engineersEmail,engineersGit);
+                // adds manager to team array
+                teamMember.push(engineer);
+                
+                generateTeam();
+                }
+                )}
+        
+        
         
         
 
