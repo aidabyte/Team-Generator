@@ -6,7 +6,6 @@
 * [General info](#general-info)
 * [Screenshots](#screenshots)
 * [Features](#features)
-* [Status](#status)
 * [Contact](#contact)
 
 ## General info
@@ -27,6 +26,3 @@ A team generator. Designed to prompt the user questions and store the answers an
 ## Status
 Project is: _in progress_ because I am still learning.
 
-
-## Contact
-Created by [@aida](https://https://github.com/aidabyte) - feel free to contact me!
