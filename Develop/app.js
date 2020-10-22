@@ -85,7 +85,7 @@ function generateTeam() {
 
             fs.writeFile(outputPath, render(teamMember), function (err) {
                 if (err);
-            //   called write file here because i want it to develop after every memeber has been added  
+            //   called write file here because i want it to develop after every member has been added  
             }); 
 
         }   
