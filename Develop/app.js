@@ -160,17 +160,13 @@ function getIntern() {
 
 
     ]).then (function({internName, internId, internEmail, internSchool}) {
-        var intern = new Intern(internName, internId, internEmail, internSchool);
+        const intern = new Intern(internName, internId, internEmail, internSchool);
         // add intern to team array
 
         teamMember.push(intern);
 
         generateTeam();
 
-        // fs.writeFile(outputPath, render(teamMember), function (err) {
-        //     if (err) console.log(err);
-            
-        // });
 
 
         
