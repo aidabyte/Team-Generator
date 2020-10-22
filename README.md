@@ -14,7 +14,7 @@
 A team generator. Designed to prompt the user questions and store the answers to display the team members information on a webpage. 
 
 ## Screenshots
-![Example screenshot](screenshot/Team.png)
+![Example screenshot](Assets/Team.png)
 
 
 ## Technologies
