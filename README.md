@@ -14,8 +14,8 @@
 A team generator. Designed to prompt the user questions and store the answers and display the team members information on a webpage. 
 
 ## Goals
-*The goal of this application was to receive the information of a team by using inquirer
-*To be able to add as many team members as possible
+*The goal of this application was to receive the information of a team by using inquirer and being able to create and HTML file that displays the empoloyees
+
 
 ## Usage
 User initializes the application in the command line using Node app.js. Then the user is prompted on what type of employee they are wanting to add to the system by choosing one of the options. The options being manager, intern, or engineeer.
