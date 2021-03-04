@@ -1,7 +1,5 @@
 # Team-Generator-Homework
 
-> A software engineering team generator. So the manager can access the team members information.
-
 ## Table of contents
 * [General info](#general-info)
 * [Goals](#goals)
