@@ -1,4 +1,4 @@
-# Team-Generator-Homework
+# Team-Generator
 
 ## Table of contents
 * [General info](#general-info)
